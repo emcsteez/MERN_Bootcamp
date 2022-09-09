@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-// We will use an onChange synthetic event to capture into state 
-//    each character as it is typed
+
 
 const Form = (props) => {
 const [ firstName, setFirstName ] = useState("");
@@ -10,7 +9,6 @@ const [ email, setEmail ] = useState("");
 const [ password, setPassword ] = useState("");
 const [ confirmPassword, setConfirmPassword] = useState("");
 
-  // using an object to hold style options for our results div
 const formDataDivStyle = {
     textAlign: "left", 
     width: "450px", 
@@ -25,8 +23,7 @@ const inputDataDivStyle = {
     margin: "5px",
 }
 
-  // The return can only return a single React element, it does NOT
-  //    have to be a div.  It can be a form or any other element.
+
 return (
     <div>
     <form style={{ marginTop: "20px" }}>

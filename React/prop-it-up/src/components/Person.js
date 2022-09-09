@@ -1,10 +1,16 @@
 import React from 'react';
+
 const PersonCard = (props) => {
+    const {firstName, lastName, age, hairColor} = props;
+    const [stateAge, setStateAge] = useState(age);
     return(
         <div>
-            <h1>{props.lastName} {props.firstName}</h1>
-            <p>Age: {props.age}</p>
-            <p>Hair color: {props.hairColor}</p>
+            <h1>{lastName} {firstName}</h1>
+            <p>Age: {stateAge}</p>
+            <p>Hair color: {hairColor}</p>
+            <button onClick={() => setStateAge(stateAge + 1)}>
+                Birthday Button for {firstName} {lastName}
+            </button>
         </div>
     );
 }
