@@ -35,6 +35,10 @@ return (
             onChange={ (e) => setFirstName(e.target.value) }
         />
         </div>
+        {firstName.length < 2 ? (
+        <p>First Name must be at least 2 characters</p>
+        ) : null }
+
         <div style={inputDataDivStyle}>
         <label htmlFor="lastName">Last Name</label>
         <input 
@@ -43,6 +47,10 @@ return (
             onChange={ (e) => setLastName(e.target.value) }
         />
         </div>
+        {lastName.length < 2 ? (
+        <p>Last Name must be at least 2 characters</p>
+        ) : null }
+
         <div style={inputDataDivStyle}>
         <label htmlFor="email">Email</label>
         <input 
@@ -51,6 +59,11 @@ return (
             onChange={ (e) => setEmail(e.target.value) }
         />
         </div>
+        {email.length < 5 ? (
+        <p>Email must be at least 5 characters</p>
+        ) : null }
+
+
         <div style={inputDataDivStyle}>
         <label htmlFor="password">Password</label>
         <input 
@@ -59,6 +72,11 @@ return (
             onChange={ (e) => setPassword(e.target.value) }
         />
         </div>
+        {password.length < 8 ? (
+        <p>Password must be at least 8 characters</p>
+        ) : null }
+
+
         <div style={inputDataDivStyle}>
         <label htmlFor="confirmPassord">Confirm Password</label>
         <input 
@@ -67,6 +85,8 @@ return (
             onChange={ (e) => setConfirmPassword(e.target.value) }
         />
         </div>
+        {confirmPassword !== password ? <p>Passwords must match</p> : null }
+
     </form>
 
     <div style={ formDataDivStyle }>
