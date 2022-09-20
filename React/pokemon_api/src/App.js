@@ -1,34 +1,24 @@
-import './App.css';
-import React, { useEffect, useState } from 'react';
-
+import "./App.css";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 function App() {
-  const [pokemon, setPokemon] = useState([]);
+  const [pokeApiData, setPokeApiData] = useState([]);
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=807')
-      .then(response => {
-
-        return response.json()
-      
+    axios
+      .get("https://pokeapi.co/api/v2/pokemon?limit=807")
+      .then((response) => {
+        console.log(response.data.results);
+        setPokeApiData(response.data.results);
       })
-      .then(response => {
-        setPokemon(response.results)
-      
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-    
-
-  }, []);  
-
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div className="App">
+      <h1>Axios API Assignment</h1>
       <ul>
-        {
-          pokemon.map((pokemonObj, index)=>{
-            return (<li key={index}>{pokemonObj.name}</li>)
-          })
-        }
+        {pokeApiData.map((pokemon, index) => (
+          <li key={index}>{pokemon.name}</li>
+        ))}
       </ul>
     </div>
   );
